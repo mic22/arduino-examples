@@ -2,7 +2,6 @@ int fanPin=8;
 int tempPin=0;
 int ledPin=9;
 int fanState=LOW;
-float temp;
 
 float getTemp(int);
 
@@ -15,8 +14,7 @@ void setup()
 
 void loop()
 {
-  temp=getTemp(tempPin);
-  fanState=(temp>25)?HIGH:LOW;
+  fanState=(getTemp(tempPin)>25)?HIGH:LOW;
   //Serial.println(temp);
   digitalWrite(fanPin, fanState);
   digitalWrite(ledPin, fanState);
